@@ -1,0 +1,59 @@
+app_home:
+  path: /
+  methods: GET
+  controller: App\Controller\PinsController::index
+
+app_create:
+  path: /pins/create
+  methods: GET|POST
+  controller: App\Controller\PinsController::create
+
+app_show:
+  path: /pins/{id<\d+>}
+  methods: GET
+  controller: App\Controller\PinsController::show
+
+app_edit:
+  path: /pins/{id<\d+>}/edit
+  methods: GET|PUT
+  controller: App\Controller\PinsController::edit
+
+app_delete:
+  path: /pins/{id<\d+>}
+  methods: DELETE
+  controller: App\Controller\PinsController::delete
+
+app_login:
+  path: /login
+  methods: GET|POST
+  controller: App\Controller\SecurityController::login
+
+app_logout:
+  path: /logout
+  methods: POST
+  controller: App\Controller\SecurityController::logout
+
+app_register:
+  path: /register
+  methods: GET|POST
+  controller: App\Controller\RegistrationController::register
+
+app_account:
+  path: /account
+  methods: GET
+  controller: App\Controller\AccountController::show
+
+app_account_edit:
+  path: /account/edit
+  methods: GET|PATCH
+  controller: App\Controller\AccountController::edit
+
+app_account_edit_password:
+  path: /account/edit-password
+  methods: GET|PATCH
+  controller: App\Controller\AccountController::editPassword
+
+app_verify_email:
+  path: /verify/email
+  methods: GET
+  controller: App\Controller\RegistrationController::verifyUserEmail

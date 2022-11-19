@@ -1,0 +1,11 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title 'Error 403' %}
+
+{% block body %}
+    <h1>Access denied</h1>
+
+    <p>
+        You can't access this page. Go back to <a href="{{ path('app_home') }}">homepage</a>.
+    </p>
+{% endblock %}

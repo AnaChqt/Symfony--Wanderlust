@@ -1,0 +1,50 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title 'Profile' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-6 mx-auto text-center">
+            <h1 class="my-5 title">Profile</h1>
+
+            <img src="{{ app.user.gravatarUrl}}" alt="{{ app.user.email }}'s Avatar" class="shadow rounded-circle">
+
+            <p class="mt-5 lead">{{ app.user.email }}</p>
+
+            <h2>{{ app.user.fullName }}</h2>
+            <p><small>Account created on {{ app.user.createdAt|date('d/m/Y') }}</small></p>
+
+            <p class="pb-5">
+                <a href="{{ path('app_account_edit') }}" class="link fw-bold text-decoration-none">Edit Account</a> | 
+                <a href="{{ path('app_account_edit_password') }}" class="link fw-bold text-decoration-none">Change Password</a>
+            </p>
+            <hr>
+        </div>
+
+        <h2 class="my-5 text-center title">All my Pins</h2>
+            {% if app.user.pins|length > 0%}
+
+                    {% for row in app.user.pins|batch(3) %}
+
+                        {% for pin in row %}
+                            <div class="col-md-4">
+                                <article class="pin bg-white rounded shadow">
+                                    <div class="mw-100 rounded-top overflow-hidden">
+                                        <a href="{{path('app_show', {id:pin.id}) }}">
+                                            <img src="{{ (pin.imageName ? vich_uploader_asset(pin) : asset('build/images/placeholder.jpg')) | imagine_filter('squared_thumbnail_medium') }}" 
+                                            alt="{{ pin.title }}" class="w-100">
+                                        </a>
+                                    </div>
+                                    <h2 class="h5 ps-3 pt-3"><a href="{{path('app_show', {id:pin.id}) }}" class="text-muted text-decoration-none">{{ pin.title }}</a></h2>
+
+                                    <p class="ps-3 pb-3 info fw-bold fst-italic"><small>Submitted by {{ pin.user.fullName }}</small></p>
+                                </article>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                {% else %}
+                    <p class="mt-5 h3 text-center">No pins yet. <a href="{{ path('app_create') }}" class="link fw-bold text-decoration-none">Let share your first travel</a></p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

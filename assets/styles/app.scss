@@ -1,0 +1,119 @@
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import 'shared/_variables';
+
+body {
+    background-color: white;
+    font-family: $primary-font, sans-serif;
+}
+
+.navbar-brand{
+    color: $primary-color;
+
+    &:hover{
+        color: $primary-color;
+    }
+}
+
+.nav-link{
+    color: $primary-color;
+
+    &:hover{
+        color: $secondary-color;
+    }
+}
+
+.title{
+    font-family: $secondary-font, sans-serif;
+    color: $primary-color;
+}
+
+.info{
+    font-family: $secondary-font, sans-serif;
+    color: $secondary-color;
+}
+
+.active>.page-link{
+    background-color: $secondary-color;
+    border-color: $secondary-color;
+
+    &:hover{
+        color: white;
+        font-weight: bold;
+    }
+}
+
+.page-link{
+    color: $primary-color;
+    font-weight: bold;
+
+    &:hover{
+        color: $secondary-color;
+    }
+}
+
+.link{
+    color: $primary-color;
+
+    &:hover{
+        color: $secondary-color;
+    }
+}
+
+.alert{
+    padding: 10px;
+    text-align: center;
+    margin: 0;
+    font-family: $secondary-font, sans-serif;
+    border: none;
+    border-radius: 0;
+
+    &.alert-success{
+        background-color: #A6CF99;
+        color: #42533D;
+    }
+
+    &.alert-error{
+        background-color: #D87D7E;
+        color: #522526;
+    }
+
+    &.alert-info{
+        background-color: #92D4EC;
+        color: #3A555E;
+    }
+}
+
+.btn{
+    color: $primary-color;
+    border-color: $primary-color;
+
+    &:hover{
+        color: white;
+        background-color: $secondary-color;
+        border-color: $secondary-color;
+    }
+}
+
+.form{
+    color: $secondary-color;
+}
+
+.vich-image {
+    .form-check{
+        @extend .mt-3;
+    }
+    img {
+        @extend .mb-2, .rounded, .shadow, .img-thumbnail;
+    }
+} 
+
+.pin{
+    img:hover{
+        transform:scale(1.075);
+        transition: transform 0.3s ease-out;
+    }
+}

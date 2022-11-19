@@ -1,0 +1,44 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title 'Register' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h1 class="mt-5 mb-3 text-center title">Create an account</h1>
+            <p class="mb-5 text-center text-muted">And share all your travel with us.</p>
+
+            {{ form_start(registrationForm) }}
+                <div class="row form">
+                    <div class="col-md-6">
+                        {{ form_row(registrationForm.firstname) }}
+                    </div>
+
+                    <div class="col-md-6">
+                        {{ form_row(registrationForm.lastname) }}
+                    </div>
+                </div>
+                <div class="form">
+                    {{ form_row(registrationForm.email) }}
+                </div>
+                <div class="form">
+                    {{ form_row(registrationForm.plainPassword, {
+                        label: 'Password'
+                    }) }}
+                </div>
+                
+                {{ form_row(registrationForm.agreeTerms) }}
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-lg">Register</button>    
+                </div>
+
+                <p class="mt-5 mb-3 text-center text-muted">Already have an account ? <a href="{{ path('app_login') }}" class="text-decoration-none link fw-bold">Log in</a></p>
+
+            {{ form_end(registrationForm) }}
+
+        </div>
+    </div>
+
+    
+{% endblock %}
